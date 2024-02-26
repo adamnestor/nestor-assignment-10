@@ -9,7 +9,5 @@ public class NestorAssignment10Application {
 	public static void main(String[] args) {
 		SpringApplication.run(NestorAssignment10Application.class, args);
 	}
-	//Testing it's all set up
-	// Test number 2
-
+	
 }
