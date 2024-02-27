@@ -11,31 +11,29 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class SpoonacularAPI {
-	
+
 	@Value("${spoonacular.url.base}")
 	private String base;
 	@Value("${spoonacular.url.mealplan}")
 	private String mealPlan;
 	@Value("${spoonacular.apikey}")
 	private String apiKey;
-	
-	
-	
+
 	RestTemplate rt = new RestTemplate();
-	
-	public <T> ResponseEntity<T> receiveMealPlan(String timeFrame, String numCalories, String diet, String exclude, Class <T> responseType) {
-		
-		URI uri = UriComponentsBuilder.fromHttpUrl(base + mealPlan)
-										.queryParam("apiKey", apiKey)
-										.queryParam("timeFrame", timeFrame)
-										.queryParamIfPresent("targetCalories", Optional.ofNullable(numCalories))
-										.queryParamIfPresent("diet", Optional.ofNullable(diet))
-										.queryParamIfPresent("exclude", Optional.ofNullable(exclude))
-										.build()
-										.toUri();
-		
+
+	public <T> ResponseEntity<T> receiveMealPlan(String timeFrame, String numCalories, String diet, String exclude,
+			Class<T> responseType) {
+
+		// Optional used because not everyone making a query may have calorie goals,
+		// diet restrictions, or foods to exclude
+		URI uri = UriComponentsBuilder.fromHttpUrl(base + mealPlan).queryParam("apiKey", apiKey)
+				.queryParam("timeFrame", timeFrame)
+				.queryParamIfPresent("targetCalories", Optional.ofNullable(numCalories))
+				.queryParamIfPresent("diet", Optional.ofNullable(diet))
+				.queryParamIfPresent("exclude", Optional.ofNullable(exclude)).build().toUri();
+
 		return rt.getForEntity(uri, responseType);
-										
+
 	}
-	
+
 }

@@ -8,7 +8,7 @@ public class DayResponse {
 
 	@JsonProperty("meals")
 	private List<Meals> meals;
-	
+
 	@JsonProperty("nutrients")
 	private Nutrients nutrients;
 
@@ -27,5 +27,5 @@ public class DayResponse {
 	public void setNutrients(Nutrients nutrients) {
 		this.nutrients = nutrients;
 	}
-	
+
 }

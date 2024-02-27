@@ -14,15 +14,15 @@ public class MealPlanController {
 
 	@Autowired
 	private SpoonacularAPI spoonacularApi;
-	
+
 	@GetMapping("mealplanner/week")
-	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions){
+	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions) {
 		return spoonacularApi.receiveMealPlan("week", numCalories, diet, exclusions, WeekResponse.class);
 	}
-	
+
 	@GetMapping("mealplanner/day")
-	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions){
+	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions) {
 		return spoonacularApi.receiveMealPlan("day", numCalories, diet, exclusions, DayResponse.class);
 	}
-	
+
 }
