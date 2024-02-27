@@ -10,10 +10,12 @@ import com.coderscampus.nestorassignment10.service.SpoonacularAPI;
 public class MealPlanController {
 
 	@Autowired
-	SpoonacularAPI spoonacularApi;
+	private SpoonacularAPI spoonacularApi;
 	
 	@GetMapping("mealplanner/week")
-	public ResponseEntity<WeekResponse> getWeekMeals(String timeFrame, String numCalories, String diet, String exclusions, String responseType)
+	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions){
+		return 
+	}
 	
 	//@GetMapping("mealplanner/day")
 	
