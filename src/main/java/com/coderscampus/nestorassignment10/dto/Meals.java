@@ -3,13 +3,6 @@ package com.coderscampus.nestorassignment10.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Meals {
-
-//	"id":649824,
-//	"imageType":"jpg",
-//	"title":"Lemon Zucchini Muffins",
-//	"readyInMinutes":45,
-//	"servings":10,
-//	"sourceUrl":"https://spoonacular.com/lemon-zucchini-muffins-649824"
 	
 	@JsonProperty("id")
 	private Integer id;
