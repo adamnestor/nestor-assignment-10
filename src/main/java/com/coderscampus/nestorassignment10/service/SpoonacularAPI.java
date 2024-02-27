@@ -4,9 +4,11 @@ import java.net.URI;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+@Service
 public class SpoonacularAPI {
 	
 	RestTemplate rt = new RestTemplate();
