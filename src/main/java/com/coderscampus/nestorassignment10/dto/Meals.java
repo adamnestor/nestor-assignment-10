@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Meals {
 	
 	@JsonProperty("id")
-	private Integer id;
-	@JsonProperty("ImageType")
+	private Long id;
+	@JsonProperty("imageType")
 	private String imageType;
 	@JsonProperty("title")
 	private String title;
@@ -18,10 +18,10 @@ public class Meals {
 	private String sourceUrl;
 	
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getImageType() {
