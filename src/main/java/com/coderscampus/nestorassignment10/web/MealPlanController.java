@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.coderscampus.nestorassignment10.dto.DayResponse;
 import com.coderscampus.nestorassignment10.dto.WeekResponse;
 import com.coderscampus.nestorassignment10.service.SpoonacularAPI;
 
@@ -14,10 +15,12 @@ public class MealPlanController {
 	
 	@GetMapping("mealplanner/week")
 	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions){
-		return 
+		return spoonacularApi.receiveMealPlan("week", numCalories, diet, exclusions, WeekResponse.class);
 	}
 	
-	//@GetMapping("mealplanner/day")
-	
+	@GetMapping("mealplanner/day")
+	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions){
+		return spoonacularApi.receiveMealPlan("day", numCalories, diet, exclusions, DayResponse.class);
+	}
 	
 }
