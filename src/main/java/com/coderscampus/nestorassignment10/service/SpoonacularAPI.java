@@ -1,4 +1,4 @@
-package com.coderscampus.nestorassignment10;
+package com.coderscampus.nestorassignment10.service;
 
 import java.net.URI;
 
