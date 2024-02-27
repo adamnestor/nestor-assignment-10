@@ -1,5 +1,65 @@
 package com.coderscampus.nestorassignment10.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Meals {
 
+//	"id":649824,
+//	"imageType":"jpg",
+//	"title":"Lemon Zucchini Muffins",
+//	"readyInMinutes":45,
+//	"servings":10,
+//	"sourceUrl":"https://spoonacular.com/lemon-zucchini-muffins-649824"
+	
+	@JsonProperty("id")
+	private Integer id;
+	@JsonProperty("ImageType")
+	private String imageType;
+	@JsonProperty("title")
+	private String title;
+	@JsonProperty("readyInMinutes")
+	private Integer readyInMinutes;
+	@JsonProperty("servings")
+	private Integer servings;
+	@JsonProperty("sourceUrl")
+	private String sourceUrl;
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getImageType() {
+		return imageType;
+	}
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Integer getReadyInMinutes() {
+		return readyInMinutes;
+	}
+	public void setReadyInMinutes(Integer readyInMinutes) {
+		this.readyInMinutes = readyInMinutes;
+	}
+	public Integer getServings() {
+		return servings;
+	}
+	public void setServings(Integer servings) {
+		this.servings = servings;
+	}
+	public String getSourceUrl() {
+		return sourceUrl;
+	}
+	public void setSourceUrl(String sourceUrl) {
+		this.sourceUrl = sourceUrl;
+	}
+	
 }
