@@ -11,7 +11,7 @@ public class SpoonacularAPI {
 	
 	RestTemplate rt = new RestTemplate();
 	
-	public <T> ResponseEntity <T> receiveMealPlan(String timeFrame, String numCalories, String diet, String exclude, Class <T> responseType) {
+	public <T> ResponseEntity<T> receiveMealPlan(String timeFrame, String numCalories, String diet, String exclude, Class <T> responseType) {
 		
 		URI uri = UriComponentsBuilder.fromHttpUrl("https://api.spoonacular.com/mealplanner/generate")
 										.queryParam("apiKey", "7b23b338c42f4c64b39b1e92c23c0f22")
