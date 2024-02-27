@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.coderscampus.nestorassignment10.dto.DayOfMeals;
+import com.coderscampus.nestorassignment10.dto.DayResponse;
 
 public class SpoonacularAPI {
 
@@ -21,7 +21,7 @@ public class SpoonacularAPI {
 									 .build()
 									 .toUri();
 		
-		ResponseEntity<DayOfMeals> response = rt.getForEntity(uri, DayOfMeals.class);
+		ResponseEntity<DayResponse> response = rt.getForEntity(uri, DayResponse.class);
 		System.out.println(response.getBody());
 	}
 	
