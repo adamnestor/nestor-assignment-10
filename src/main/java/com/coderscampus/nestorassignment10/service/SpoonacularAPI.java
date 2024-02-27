@@ -1,28 +1,30 @@
 package com.coderscampus.nestorassignment10.service;
 
 import java.net.URI;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.coderscampus.nestorassignment10.dto.DayResponse;
-
 public class SpoonacularAPI {
-
-	@Test
-	public void callSpoonacularApi() {
-		RestTemplate rt = new RestTemplate();
+	
+	RestTemplate rt = new RestTemplate();
+	
+	public <T> ResponseEntity <T> receiveMealPlan(String timeFrame, String numCalories, String diet, String exclude, Class <T> responseType) {
 		
 		URI uri = UriComponentsBuilder.fromHttpUrl("https://api.spoonacular.com/mealplanner/generate")
-									 .queryParam("timeFrame", "day")
-									 .queryParam("apiKey", "7b23b338c42f4c64b39b1e92c23c0f22")
-									 .build()
-									 .toUri();
+										.queryParam("apiKey", "7b23b338c42f4c64b39b1e92c23c0f22")
+										.queryParam("timeFrame", timeFrame)
+										.queryParamIfPresent("targetCalories", Optional.ofNullable(numCalories))
+										.queryParamIfPresent("diet", Optional.ofNullable(diet))
+										.queryParamIfPresent("exclude", Optional.ofNullable(exclude))
+										.build()
+										.toUri();
 		
-		ResponseEntity<DayResponse> response = rt.getForEntity(uri, DayResponse.class);
-		System.out.println(response.getBody());
+		return rt.getForEntity(uri, responseType);
+										
 	}
 	
 }
