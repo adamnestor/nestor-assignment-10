@@ -20,7 +20,7 @@ public class SpoonacularAPI {
 									 .toUri();
 		
 		ResponseEntity<String> response = rt.getForEntity(uri, String.class);
-		System.out.println(response);
+		System.out.println(response.getBody());
 	}
 	
 }
