@@ -24,12 +24,11 @@ public class SpoonacularAPI {
 	public <T> ResponseEntity<T> receiveMealPlan(String timeFrame, String numCalories, String diet, String exclude,
 			Class<T> responseType) {
 
-		
 		URI uri = UriComponentsBuilder.fromHttpUrl(base + mealPlan).queryParam("apiKey", apiKey)
-																.queryParam("timeFrame", timeFrame)
-																.queryParamIfPresent("targetCalories", Optional.ofNullable(numCalories))
-																.queryParamIfPresent("diet", Optional.ofNullable(diet))
-																.queryParamIfPresent("exclude", Optional.ofNullable(exclude)).build().toUri();
+				.queryParam("timeFrame", timeFrame)
+				.queryParamIfPresent("targetCalories", Optional.ofNullable(numCalories))
+				.queryParamIfPresent("diet", Optional.ofNullable(diet))
+				.queryParamIfPresent("exclude", Optional.ofNullable(exclude)).build().toUri();
 
 		return rt.getForEntity(uri, responseType);
 
